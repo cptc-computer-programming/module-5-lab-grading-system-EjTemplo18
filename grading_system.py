@@ -113,6 +113,9 @@ else:
 
 
 
+# Using a single boolean variable
+is_passing = final_score >= 60
+
 
 # ------------------------------------------------------------
 # Step 7: Add a message using nested decisions
@@ -128,7 +131,13 @@ else:
 # Else:
 #     set message to "Not passing yet. Keep practicing."
 
-
+if is_passing:
+    if final_score >= 90:
+        message = "Excellent work!"
+    else:
+        message = "Passing assignment."
+else:
+    message = "Not passing yet. Keep practicing."
 
 
 # ------------------------------------------------------------
@@ -145,7 +154,7 @@ else:
 #
 # Otherwise, needs_review should be False.
 
-
+needs_review = (not is_passing) or (was_late and final_score < 70)
 
 
 # ------------------------------------------------------------
@@ -159,5 +168,5 @@ print("Original score:", score)
 print("Final score:", final_score)
 print("Letter grade:", letter_grade)
 print("Passing:", is_passing)
-# print("Needs review:", needs_review)
+print("Needs review:", needs_review)
 print("Message:", message)
